@@ -1,0 +1,23 @@
+// Function to handle opening URLs in a new tab
+function openUrl(url) {
+    window.open(url, '_blank');  // Open in a new tab
+}
+
+// Select all buttons with the class 'project-btn'
+const buttons = document.querySelectorAll('.project-btn');
+
+// Loop through each button and add an event listener for clicks
+buttons.forEach(button => {
+    button.addEventListener('click', function() {
+        // Check which button was clicked: GitHub or Live
+        if (this.classList.contains('github')) {
+            // Open the GitHub repo URL
+            const githubUrl = this.getAttribute('data-github');
+            openUrl(githubUrl);
+        } else if (this.classList.contains('live')) {
+            // Open the live project URL
+            const liveUrl = this.getAttribute('data-live');
+            openUrl(liveUrl);
+        }
+    });
+});
